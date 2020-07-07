@@ -1,29 +1,59 @@
 {
-    "productos": [
-      {
-        "id": 1,
-        "nombre": "Jugo de Zanahoria",
-        "precio": "311"
-      },
-      {
-        "id": 2,
-        "nombre": "Jugo de Naranja",
-        "precio": "1"
-      },
-      {
-        "nombre": "Jugo de Naranja",
-        "precio": "300",
-        "id": 3
-      },
-      {
-        "nombre": "Rib Eye 800g",
-        "precio": "200",
-        "id": 4
-      },
-      {
-        "nombre": "Jugo de Fresa",
-        "precio": "200",
-        "id": 5
-      }
-    ]
-  }
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Jugo de Zanahoria",
+      "precio": "311"
+    },
+    {
+      "id": 2,
+      "nombre": "Jugo de Naranja",
+      "precio": "1"
+    },
+    {
+      "nombre": "Jugo de Naranja",
+      "precio": "300",
+      "id": 3
+    },
+    {
+      "nombre": "Rib Eye 800g",
+      "precio": "200",
+      "id": 4
+    },
+    {
+      "nombre": "Jugo de Fresa",
+      "precio": "200",
+      "id": 5
+    },
+    {
+      "nombre": "Ron",
+      "precio": "50",
+      "id": 6
+    },
+    {
+      "nombre": "Ron",
+      "precio": "100",
+      "id": 7
+    },
+    {
+      "nombre": "Ron",
+      "precio": "100",
+      "id": 8
+    },
+    {
+      "nombre": "Peras",
+      "precio": "23",
+      "id": 9
+    },
+    {
+      "nombre": "papas",
+      "precio": "56",
+      "id": 10
+    },
+    {
+      "nombre": "Pan ",
+      "precio": "23",
+      "id": 11
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 // Actions Redux
 import { crearProductoAction } from '../actions/productosAction';
 
-const NuevoProducto = () => {
+const NuevoProducto = ({ history }) => {
     // STATES LOCALES //
     const [producto, setProducto] = useState({
         nombre: '',
@@ -17,6 +17,10 @@ const NuevoProducto = () => {
 
     // useDispatch para ejecitar las funciones de los actions 
     const dispatch = useDispatch();
+
+    // useSelector para obtener los states del store
+    const productos = useSelector(state => state.productos);
+    const { loading, error } = productos;
     
     //Manda a llamar la funcion del action necesario 
     const agregarProducto = producto => dispatch( crearProductoAction(producto) );
@@ -44,6 +48,9 @@ const NuevoProducto = () => {
 
         //Creacin de nuevo producto
         agregarProducto(producto);
+
+        //Redireccion al ABM
+        history.push('/');
 
 
     }
@@ -87,6 +94,8 @@ const NuevoProducto = () => {
                             >Agregar
                             </button>
                         </form>
+                        { loading ? <p>Cargando...</p> : null }
+                        { error ? <p className="alert alert-danger p2 mt-4 text-center">Hubo un error</p> : null }
                     </div>
                 </div>
             </div>
