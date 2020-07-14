@@ -14,15 +14,22 @@ const Productos = () => {
         //Funcion para invocar al action 
         const cargarProductos = () => dispatch( obtenerProductosAction() );
         cargarProductos();
+
+        // eslint-disable-next-line
     }, [])
 
     // Obtenemos los productos del State de productos del redux
-    const productos = useSelector(state => state.productos.productos);
+    const productoState = useSelector(state => state.productos);
+    const { productos, error, loading } = productoState;
     // console.log(productos);
     
     return (
         <Fragment>
             <h2 className="text-center my-5 text-info">Listado de Productos</h2>
+
+            { error ? <p className="font-weight-bold alert alert-danger mt-4 text-center">Hubo un error</p> : null }
+            { loading ? <p className="text-center">Cargando...</p> : null }
+
             <table className="table table-striped">
                 <thead className="bg-dark table-dark">
                     <tr>

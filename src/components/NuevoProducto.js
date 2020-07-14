@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 // Funciones para ejecutar las acciones de redux
 import { useDispatch, useSelector } from 'react-redux';
 
+
 // Actions Redux
 import { crearProductoAction } from '../actions/productosAction';
+import { mostraralerta, ocultarAlerta } from '../actions/alertasAction';
 
 const NuevoProducto = ({ history }) => {
     // STATES LOCALES //
@@ -20,7 +22,10 @@ const NuevoProducto = ({ history }) => {
 
     // useSelector para obtener los states del store
     const productos = useSelector(state => state.productos);
+    const alerta = useSelector(state => state.alertas.alerta);
     const { loading, error } = productos;
+
+    
     
     //Manda a llamar la funcion del action necesario 
     const agregarProducto = producto => dispatch( crearProductoAction(producto) );
@@ -39,12 +44,18 @@ const NuevoProducto = ({ history }) => {
 
         // Validacion
         if (nombre.trim() === '' || precio.trim() <= '0') {
+            const alerta = {
+                msg: 'Todos los campos son requeridos',
+                clases: 'alert alert-danger text-center p3 text-uppercase'
+            }
+            
+            dispatch( mostraralerta(alerta) );
+
             return;
         }
 
-
-        //Verificacion de errores
-
+        //Ocultando la alerta
+        dispatch( ocultarAlerta() );
 
         //Creacin de nuevo producto
         agregarProducto(producto);
@@ -63,6 +74,7 @@ const NuevoProducto = ({ history }) => {
                         <h2 className="text-center text-info mb-4 font-weight-bold">
                             Agregar Nuevo Producto
                         </h2>
+                        { alerta ? <p className={alerta.clases}>{alerta.msg}</p> : null }
                         <form 
                             onSubmit={submitNuevo}
                         >
